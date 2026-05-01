@@ -500,6 +500,7 @@ void render_panel_cpu() {
         ImGui::BeginDisabled(!enable_ppc_idle);
         ImGui::SliderInt("##PPC Idle", &changed_prefs.ppc_cpu_idle, 0, 10);
         AmigaBevel(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), false);
+        ShowHelpMarker("How much the M68K CPU sleeps while PPC is running. Higher values reduce host CPU usage.");
         ImGui::EndDisabled();
 
         ImGui::Dummy(ImVec2(right_group_min_width, 0.0f));
@@ -521,6 +522,7 @@ void render_panel_cpu() {
                 changed_prefs.x86_speed_throttle = 0; // Mirroring safety logic? Maybe not needed for x86 but safe.
         }
         AmigaBevel(ImGui::GetItemRectMin(), ImGui::GetItemRectMax(), false);
+        ShowHelpMarker("x86 CPU speed as a percentage of maximum. Only has an effect when not running at fastest possible speed.");
         ImGui::EndDisabled();
 
         ImGui::Dummy(ImVec2(right_group_min_width, 0.0f));
